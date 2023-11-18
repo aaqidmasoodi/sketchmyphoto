@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N19M7HD3PW"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-N19M7HD3PW');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SketchMyPhoto</title>
@@ -119,8 +128,8 @@
         <h1>SketchMyPhoto</h1>
         <p>Upload a photo to convert it into a sketch</p>
 
-        <form id="upload-form" enctype="multipart/form-data"  method="post" action="{% url 'home' %}"> {% csrf_token %}
-            <input type="file" accept="image/*" id="file-input" name="file" onchange="previewImage()" required>
+        <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'home' %}" onsubmit="return validateForm()"> {% csrf_token %}
+            <input type="file" accept="image/jpeg, image/png, image/gif, image/bmp, image/tiff, image/webp" id="file-input" name="file" onchange="previewImage()" required>
             <button type="submit" onclick="uploadFile()">Upload</button>
         </form>
 
@@ -135,6 +144,22 @@
     </footer>
 
     <script>
+        function validateForm() {
+            var input = document.getElementById('file-input');
+            var file = input.files[0];
+
+            if (file) {
+                var allowedFormats = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff', 'image/webp'];
+
+                if (allowedFormats.indexOf(file.type) === -1) {
+                    alert('Invalid file format. Please select a valid image file.');
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         function previewImage() {
             var input = document.getElementById('file-input');
             var file = input.files[0];
@@ -149,6 +174,10 @@
         }
 
         function uploadFile() {
+            if (!validateForm()) {
+                return;
+            }
+
             var uploadButton = document.querySelector('#upload-form button');
             uploadButton.textContent = 'Sketching...';
             uploadButton.classList.add('loading');
