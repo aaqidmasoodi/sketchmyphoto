@@ -36,13 +36,6 @@ def home_view(request):
         # Upload the sketch to FreeImage.host and get the URL
         sketch_url = upload_to_freeimagehost(sketch_in_memory)
 
-        print(sketch_url)
-
-        # # Save the sketch image (you can modify this based on your needs)
-        # media_directory = "media"
-        # sketch_image_path = os.path.join(media_directory, "sketch.jpg")
-        # cv2.imwrite(sketch_image_path, sketch)
-
         # Redirect to the sketch view or any other view as needed
         return render(request, "sketch.html", {"sketch_url": sketch_url})
 
