@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from PIL import Image
-import cv2
 import numpy as np
-import os
 from .utils import generate_sketch, upload_to_freeimagehost
 from io import BytesIO
 
@@ -25,7 +23,7 @@ def home_view(request):
         # Convert PIL image to a NumPy array
         image = np.array(pil_image)
 
-        # Generate a sketch using your own function (replace generate_sketch with your actual implementation)
+        # Generate a sketch using openCV
         sketch = generate_sketch(photo=image)
 
         # Create a BytesIO object to store the sketch in memory
