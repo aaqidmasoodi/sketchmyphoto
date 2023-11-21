@@ -130,9 +130,43 @@
             bottom: 0;
             width: 100%;
         }
+        /* New style for the top strip */
+        #top-strip {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #donate-link {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        #donate-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        #donate-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+     <!-- New top strip for Donate and Support -->
+     <div id="top-strip">
+        <a id="donate-link" href="{% url 'support' %}">
+            Donate and Support
+        </a>
+        <!-- Add more links or content as needed -->
+    </div>
     <div id="upload-container">
         <h1>SketchMyPhoto</h1>
         <p>Upload a photo to convert it into a sketch</p>

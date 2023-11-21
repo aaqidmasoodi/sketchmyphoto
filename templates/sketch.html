@@ -68,12 +68,8 @@
             transition: background-color 0.3s ease;
             margin-top: 10px;
         }
-    
-        button:hover {
-            background-color: #45a049;
-        }
 
-        /* Style the "Go Back Home" button */
+        /* Style the "Sketch Another" button */
         .go-back-button {
             background-color: #3498db;
             color: #fff;
@@ -83,15 +79,38 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             margin-top: 10px;
+            margin-left: 10px; /* Add margin to create space between buttons */
         }
 
         .go-back-button:hover {
             background-color: #2980b9;
         }
 
-        /* Add some margin between buttons */
+        /* Style the "Donate" link */
+        .donate-link {
+            display: block;
+            width: 100%;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 0;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-link:hover {
+            background-color: #c0392b;
+        }
+
+        /* Add some margin between buttons and link */
         .button-container {
             margin-top: 10px;
+        }
+
+        /* Ensure buttons are in the same line */
+        .button-container button {
+            display: inline-block;
         }
     </style>
     
@@ -103,15 +122,17 @@
 
         <!-- Use Django template syntax to dynamically set the image source -->
         <img id="sketch" src="{{ sketch_url }}" alt="Converted Sketch">
-        <br>
-        <button onclick="downloadSketch()">Download Sketch</button>
-
-        <!-- Add a button to go back home -->
         <div class="button-container">
+            <button onclick="downloadSketch()">Download Sketch</button>
+
+            <!-- Add a button to go back home -->
             <a href="{% url 'home' %}">
                 <button class="go-back-button">Sketch Another</button>
             </a>
         </div>
+
+        <!-- Add the "Donate" link -->
+        <a href="{% url 'support' %}" class="donate-link">Support SketchMyPhoto - Donate Now</a>
     </div>
 
     <script>

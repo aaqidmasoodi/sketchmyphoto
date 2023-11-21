@@ -38,3 +38,7 @@ def home_view(request):
         return render(request, "sketch.html", {"sketch_url": sketch_url})
 
     return render(request, "index.html")
+
+
+def donate_and_support_view(request):
+    return render(request, "donate_and_support.html")
