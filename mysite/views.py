@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from PIL import Image
 import numpy as np
-from .utils import generate_sketch, upload_to_freeimagehost
+from .utils import upload_to_freeimagehost, generate_sketch, generate_coloring_book_outline
 from io import BytesIO
 
 
@@ -24,7 +24,8 @@ def home_view(request):
         image = np.array(pil_image)
 
         # Generate a sketch using openCV
-        sketch = generate_sketch(photo=image)
+        # sketch = generate_sketch(photo=image)
+        sketch = generate_coloring_book_outline(image)
 
         # Create a BytesIO object to store the sketch in memory
         sketch_in_memory = BytesIO()

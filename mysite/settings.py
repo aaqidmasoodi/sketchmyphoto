@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "22970de32e5013293ac69648ce79bc9a0224a0cd82a525cf6523e9c9d01c58dd"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["sketchmyphoto.cc", "www.sketchmyphoto.cc", ".vercel.app", "127.0.0.1"]
 
