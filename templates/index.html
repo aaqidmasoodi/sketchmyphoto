@@ -162,23 +162,52 @@
 <body>
 
     <div id="upload-container">
-        <h1>SketchMyPhoto</h1>
-        <p>Upload a photo to convert it into a sketch</p>
+        <h1>SketchMyPhoto - Convert Your Photos to Sketches</h1>
+        <p>Transform your photos into beautiful pencil sketches with SketchMyPhoto. Upload any image and instantly get a hand-drawn sketch. It's fast, easy, and free!</p>
 
-        <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'home' %}" onsubmit="return validateForm()"> {% csrf_token %}
+        <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'home' %}" onsubmit="return validateForm()"> 
+            {% csrf_token %}
             <input type="file" accept="image/jpeg, image/png, image/gif, image/bmp, image/tiff, image/webp" id="file-input" name="file" onchange="previewImage()" required>
             <button type="submit" onclick="uploadFile()">Upload</button>
         </form>
 
         <div id="preview-container">
-            <img id="preview">
+            <img id="preview" alt="Preview of uploaded photo turned into a sketch">
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        Developed by Aaqid Masoodi &copy; 2023 SketchMyPhoto.aaqidmasoodi.com. All rights reserved.
+        <p>Developed by Aaqid Masoodi &copy; 2023 SketchMyPhoto.aaqidmasoodi.com. All rights reserved.</p>
+        <p>Learn how to convert photos to sketches online and discover the best tools for digital art at SketchMyPhoto.</p>
     </footer>
+
+    <!-- Add additional content here for better SEO ranking -->
+    <section id="how-it-works">
+        <h2>How SketchMyPhoto Works</h2>
+        <p>SketchMyPhoto uses advanced algorithms to convert your images into artistic pencil sketches. All you need to do is upload a photo, and within seconds, you'll receive a high-quality sketch.</p>
+    </section>
+
+    <section id="features">
+        <h2>Why Choose SketchMyPhoto?</h2>
+        <ul>
+            <li><strong>Fast Conversion:</strong> Get your sketches in just a few seconds.</li>
+            <li><strong>High-Quality Output:</strong> Our tool ensures your sketch looks professional and realistic.</li>
+            <li><strong>Free to Use:</strong> No hidden charges or fees for converting your photos into sketches.</li>
+            <li><strong>Multiple Formats:</strong> Supports a variety of image formats such as JPEG, PNG, GIF, BMP, TIFF, and WebP.</li>
+        </ul>
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <h3>How does the photo-to-sketch conversion work?</h3>
+        <p>The conversion process uses AI-based algorithms to analyze the photo and recreate it as a pencil sketch. The result is a realistic sketch that mirrors the photo's content.</p>
+
+        <h3>What file formats are supported?</h3>
+        <p>We support various image formats, including JPEG, PNG, GIF, BMP, TIFF, and WebP.</p>
+
+        <h3>Is SketchMyPhoto free to use?</h3>
+        <p>Yes! You can convert photos to sketches for free with no hidden charges.</p>
+    </section>
 
     <script>
         function validateForm() {
